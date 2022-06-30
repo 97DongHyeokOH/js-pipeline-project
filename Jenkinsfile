@@ -6,7 +6,7 @@ pipeline {
 				echo 'building the applicaiton...'
 			}
 		}
-		stage("test") 
+		stage("test") {
 			steps {
 				echo 'testing the applicaiton...'
 			}
@@ -17,4 +17,15 @@ pipeline {
 			}
 		}
 	}
-}
+	post {
+			always {
+				echo 'building..'
+			}
+			success {
+	            echo 'success'
+			}
+			failure {
+	            echo 'failure'
+			}
+		}
+	}
